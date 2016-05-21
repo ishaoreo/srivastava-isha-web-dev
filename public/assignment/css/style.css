@@ -5,4 +5,7 @@ body
 
 /*this below thing applies only to nvbar which is a paragraph*/
 p.navbar-text.pull-right
-{margin-right: 16px;}
+{margin-right: 14px;}
+
+p.navbar-text.pull-left
+{margin-left: 14px}

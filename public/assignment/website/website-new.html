@@ -3,102 +3,84 @@
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="initial-scale=1.20, user-scalable = no">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/assignment/css/style.css" rel="stylesheet"/>
 </head>
 <body>
-
-<!--
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-inner">
-            <a class="navbar-brand" href="#">
-                Profile
-            </a>
-            <p class="navbar-text pull-right">
-                <a href="#" class="navbar-link">
-          <span class="glyphicon glyphicon-ok">
-          </span>
-                </a>
-            </p>
-        </div>
-    </div>
-</nav>
--->
-
-<nav class="navbar navbar-default navbar-fixed-top">
+<!--<<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-
-            <a class="navbar-brand" href="#">
-                Profile
-            </a>
-            <p class="navbar-text pull-right">
-                <a href="#" class="navbar-link">
-          <span class="glyphicon glyphicon-ok">
-          </span>
+            <div class="text-center pull-left left-header">
+                <a href="website-list.html" class="navbar-link">
+                     <span class="glyphicon glyphicon-chevron-left">
+                     </span>
                 </a>
-            </p>
-
-        </div>
-    </div>
-</nav>
-
-
-<div class="container">
-
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Success!</strong> Your profile was saved.
-    </div>
-
-    <form>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="alice@wonderland.com">
-        </div>
-        <div class="form-group">
-            <label for="first-name">First Name</label>
-            <input type="text" class="form-control" id="first-name" placeholder="Alice">
-        </div>
-        <div class="form-group">
-            <label for="last-name">Last Name</label>
-            <input type="text" class="form-control" id="last-name" placeholder="Wonderland">
-        </div>
-    </form>
-
-    <a class="btn btn-primary btn-block"
-       href="../website/website-list.html">Websites</a>
-    <a class="btn btn-danger  btn-block"
-       href="login.html">Logout</a>
-</div>
-<!--
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-        <div class="row navbar-text">
-
-            <div class="col-xs-3 pull-right">
-                <a href="#">
-                    <span class="glyphicon glyphicon-user"></span>
+            </div>
+            <a class="navbar-brand" href="#">
+                New Website
+            </a>
+            <div class="text-center pull-right right-header">
+                <a href="#" class="navbar-link">
+                     <span class="glyphicon glyphicon-ok">
+                     </span>
                 </a>
             </div>
         </div>
     </div>
 </nav>-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+
+            <p class="navbar-text pull-left">
+                <a href="website-list.html" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left">
+          </span>
+                </a>
+            </p>
+
+            <a class="navbar-brand" href="#">
+                New Website
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="#" class="navbar-link">
+          <span class="glyphicon glyphicon-ok">
+          </span>
+                </a>
+            </p>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> Your website has been updated
+    </div>
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" class="form-control" rows="4" placeholder="Description"></textarea>
+        </div>
+    </form>
+</div>
+
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-inner">
             <a class="navbar-brand" href="#"></a>
             <p>
-                <a href="#" class="navbar-link">
+                <a href="/assignment/user/profile.html" class="navbar-link">
           <span class="glyphicon glyphicon-user pull-right text-primary">
           </span>
                 </a>
@@ -106,6 +88,7 @@
         </div>
     </div>
 </nav>
+
 
 </body>
 </html>
