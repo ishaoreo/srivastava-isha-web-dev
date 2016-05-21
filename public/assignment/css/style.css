@@ -1,4 +1,8 @@
 input.form-control
 {margin-bottom: 10px;}
 body
-{padding-top: 70px;}
+{padding-top: 61px;}
+
+/*this below thing applies only to nvbar which is a paragraph*/
+p.navbar-text.pull-right
+{margin-right: 16px;}
