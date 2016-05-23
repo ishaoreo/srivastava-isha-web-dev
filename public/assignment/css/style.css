@@ -1,7 +1,8 @@
 input.form-control
 {margin-bottom: 10px;}
 body
-{padding-top: 61px;}
+{padding-top: 61px;
+padding-bottom: 50px;}
 
 /*this below thing applies only to nvbar which is a paragraph*/
 p.navbar-text.pull-right
@@ -9,4 +10,16 @@ p.navbar-text.pull-right
 
 p.navbar-text.pull-left
 {margin-left: 14px;}
+
+span.glyphicon.glyphicon-eye-open
+{padding-left: 10px;}
+
+.jga-widget-tool
+{position: absolute;
+    right:15px;
+background-color: white;
+padding-bottom: 5px;
+padding-left: 5px;
+padding-bottom-left-radius: 12px;
+opacity: 0.7;}
 
