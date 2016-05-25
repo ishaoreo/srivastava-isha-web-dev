@@ -10,13 +10,12 @@
     <link href="../css/style.css" rel="stylesheet" />
 </head>
 <body>
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
 
             <p class="navbar-text pull-left">
-                <a href="widget-list.html" class="navbar-link">
+                <a href="widget-list.view.client.html" class="navbar-link">
           <span class="glyphicon glyphicon-chevron-left">
           </span>
                 </a>
@@ -26,7 +25,7 @@
                 Widget Edit
             </a>
             <p class="navbar-text pull-right">
-                <a href="widget-list.html" class="navbar-link">
+                <a href="widget-list.view.client.html" class="navbar-link">
           <span class="glyphicon glyphicon-ok">
           </span>
                 </a>
@@ -35,33 +34,30 @@
     </div>
 </nav>
 
-
 <div class="container">
-
+    <!--<div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> Your Image has been updated
+    </div>-->
     <form>
         <div class="form-group">
             <label for="image-name">Name</label>
             <input type="text" class="form-control" id="image-name" placeholder="Name" />
         </div>
         <div class="form-group">
-            <label for="image-text">Text</label>
-            <input type="text" id="image-text" class="form-control" placeholder="Cartoons "/>
+            <label for="video-text">Text</label>
+            <input type="text" id="video-text" class="form-control" placeholder="Justice League" />
         </div>
         <div class="form-group">
-            <label for="image-url">URL</label>
-            <input type="url" id="image-url" class="form-control" placeholder="http://cdn.playbuzz.com/cdn/68f09ead-1808-464a-864c-feec7bf5a348/6e65be20-7623-41cf-9e8d-f9023eaa1f1d.jpg"/>
+            <label for="video-url">URL</label>
+            <input type="url" id="video-url" class="form-control" placeholder="https://youtu.be/ZAsDL7f3veM"/>
         </div>
         <div class="form-group">
-            <label for="image-width">Width</label>
-            <input type="text" id="image-width" class="form-control" placeholder="100%"/>
-        </div>
-        <div class="form-group ">
-            <label for="image-path">Upload</label>
-            <input type="file" id="image-path" class="form-control image-upload-div" />
+            <label for="video-width">Width</label>
+            <input type="text" id="video-width" class="form-control"  placeholder="100%"/>
         </div>
     </form>
-    <a class="btn btn-primary btn-block" href="widget-list.html">Upload</a>
-    <a class="btn btn-danger btn-block" href="widget-list.html">Delete</a>
+    <a class="btn btn-danger btn-block" href="widget-list.view.client.html">Delete</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -76,6 +72,7 @@
             </p>
         </div>
     </div>
+
 </nav>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
     <meta charset="UTF-8">
-    <title>New Page</title>
+    <title>Page Edit</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet" />
 </head>
@@ -14,13 +14,13 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="text-center pull-left left-header">
-                <a href="page-list.html" class="navbar-link">
+                <a href="page-list.view.client.html" class="navbar-link">
                      <span class="glyphicon glyphicon-chevron-left">
                      </span>
                 </a>
             </div>
             <a class="navbar-brand" href="#">
-                New Page
+                Edit Page
             </a>
             <div class="text-center pull-right right-header">
                 <a href="#" class="navbar-link">
@@ -38,17 +38,17 @@
 
 
             <p class="navbar-text pull-left">
-                <a href="page-list.html" class="navbar-link">
+                <a href="page-list.view.client.html" class="navbar-link">
           <span class="glyphicon glyphicon-chevron-left">
           </span>
                 </a>
             </p>
 
             <a class="navbar-brand" href="#">
-                Page New
+                Page Edit
             </a>
             <p class="navbar-text pull-right">
-                <a href="page-list.html" class="navbar-link">
+                <a href="page-list.view.client.html" class="navbar-link">
           <span class="glyphicon glyphicon-ok">
           </span>
                 </a>
@@ -58,11 +58,8 @@
     </div>
 </nav>
 
+
 <div class="container">
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Success!</strong> Your page has been created.
-    </div>
     <form>
         <div class="form-group">
             <label for="name">Name</label>
@@ -73,6 +70,7 @@
             <input type="text" id="title" class="form-control" placeholder="Title" />
         </div>
     </form>
+    <a class="btn btn-danger btn-block" href="page-list.view.client.html">Delete</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -89,6 +87,5 @@
     </div>
 
 </nav>
-
 </body>
 </html>

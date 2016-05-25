@@ -5,72 +5,63 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
     <meta charset="UTF-8">
-    <title>Page Edit</title>
+    <title>Widget Edit</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet" />
 </head>
 <body>
-<!--<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <div class="text-center pull-left left-header">
-                <a href="page-list.html" class="navbar-link">
-                     <span class="glyphicon glyphicon-chevron-left">
-                     </span>
-                </a>
-            </div>
-            <a class="navbar-brand" href="#">
-                Edit Page
-            </a>
-            <div class="text-center pull-right right-header">
-                <a href="#" class="navbar-link">
-                     <span class="glyphicon glyphicon-ok">
-                     </span>
-                </a>
-            </div>
-        </div>
-    </div>
-</nav>-->
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
 
-
             <p class="navbar-text pull-left">
-                <a href="page-list.html" class="navbar-link">
+                <a href="widget-list.view.client.html" class="navbar-link">
           <span class="glyphicon glyphicon-chevron-left">
           </span>
                 </a>
             </p>
 
             <a class="navbar-brand" href="#">
-                Page Edit
+                Widget Edit
             </a>
             <p class="navbar-text pull-right">
-                <a href="page-list.html" class="navbar-link">
+                <a href="widget-list.view.client.html" class="navbar-link">
           <span class="glyphicon glyphicon-ok">
           </span>
                 </a>
             </p>
-
         </div>
     </div>
 </nav>
 
 
 <div class="container">
+
     <form>
         <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Name" />
+            <label for="image-name">Name</label>
+            <input type="text" class="form-control" id="image-name" placeholder="Name" />
         </div>
         <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" id="title" class="form-control" placeholder="Title" />
+            <label for="image-text">Text</label>
+            <input type="text" id="image-text" class="form-control" placeholder="Cartoons "/>
+        </div>
+        <div class="form-group">
+            <label for="image-url">URL</label>
+            <input type="url" id="image-url" class="form-control" placeholder="http://cdn.playbuzz.com/cdn/68f09ead-1808-464a-864c-feec7bf5a348/6e65be20-7623-41cf-9e8d-f9023eaa1f1d.jpg"/>
+        </div>
+        <div class="form-group">
+            <label for="image-width">Width</label>
+            <input type="text" id="image-width" class="form-control" placeholder="100%"/>
+        </div>
+        <div class="form-group ">
+            <label for="image-path">Upload</label>
+            <input type="file" id="image-path" class="form-control image-upload-div" />
         </div>
     </form>
-    <a class="btn btn-danger btn-block" href="page-list.html">Delete</a>
+    <a class="btn btn-primary btn-block" href="widget-list.view.client.html">Upload</a>
+    <a class="btn btn-danger btn-block" href="widget-list.view.client.html">Delete</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -85,7 +76,6 @@
             </p>
         </div>
     </div>
-
 </nav>
 </body>
 </html>
