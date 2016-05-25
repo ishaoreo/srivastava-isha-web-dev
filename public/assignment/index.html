@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="WebAppMaker">
 <head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
     <meta charset="UTF-8">
     <title>Assignment Home Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
 <script src="app.js"></script>
+    <script src="app.js"></script>
+    <!--what i wanna show in the ng-view is determined by the above source-->
 </head>
 <body>
+<div ng-view></div>
     <h1>Assignment Home Page</h1>
 </body>
 </html>

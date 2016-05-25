@@ -1,2 +1,4 @@
+(function() {
 
-angular.module("WebAppMaker",[]);
+    angular.module("WebAppMaker", []);
+})();
