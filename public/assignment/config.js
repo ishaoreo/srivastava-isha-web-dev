@@ -22,7 +22,7 @@
             .when("/login", {
                 templateUrl: "views/user/login.view.client.html",
                 controller: "LoginController",
-                 controllerAs: "model"
+                controllerAs: "model"
                 //the dollar sign of the scope helps to control everything in this html
             })
 
@@ -31,8 +31,10 @@
             })
 
 
-            .when("/profile", {
-                templateUrl: "views/user/profile.view.client.html"
+            .when("/profile/:id", {
+                templateUrl: "views/user/profile.view.client.html",
+               controller: "ProfileController",
+                controllerAs: "model"
             })
 
 

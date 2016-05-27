@@ -36,6 +36,7 @@
     </div>
 </nav>
 
+{{model.user}}
 
 <div class="container">
 
@@ -47,19 +48,38 @@
     <form>
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="ishaoreo">
+            <input ng-model="model.user.username"
+                   type="text"
+                   class="form-control"
+                   id="username"
+                   placeholder="ishaoreo">
         </div>
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="isha@hakunamatata.com">
+            <input
+                    ng-model="model.user.email"
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="isha@hakunamatata.com">
         </div>
         <div class="form-group">
             <label for="first-name">First Name</label>
-            <input type="text" class="form-control" id="first-name" placeholder="Isha">
+            <input
+                    ng-model="model.user.firstName"
+                    type="text"
+                    class="form-control"
+                    id="first-name"
+                    placeholder="Isha">
         </div>
         <div class="form-group">
             <label for="last-name">Last Name</label>
-            <input type="text" class="form-control" id="last-name" placeholder="Srivastava">
+            <input
+                    ng-model="model.user.lastName"
+                    type="text"
+                    class="form-control"
+                    id="last-name"
+                    placeholder="Srivastava">
         </div>
     </form>
 
