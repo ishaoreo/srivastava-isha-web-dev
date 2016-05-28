@@ -1,11 +1,10 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("LoginController", LoginController)
         .controller("ProfileController", ProfileController);
     //html and java script talk to each other via scope
 //model is instance of controller
-    
+
     //given below is my array database kinda
     var users =
         [
@@ -18,46 +17,27 @@
 
     function ProfileController($routeParams) {
         var vm = this;
-        vm.updateUser= updateUser;
+        vm.updateUser = updateUser;
 
         var id = $routeParams.id; /// u can also write $routeParams.[id];
         console.log(id);
 
-        var index=-1
+        var index = -1
 
-for(var i in users) {
-    if (users[i]._id === id) {
-        {
-            vm.user = users[i];
-            index= i;
+        for (var i in users) {
+            if (users[i]._id === id) {
+                {
+                    vm.user = users[i];
+                    index = i;
+                }
+            }
         }
-    }
-}
+
         function updateUser(newUser) {
-console.log(newUser);
+            console.log(newUser);
             users[index].firstName = newUser.firstName;
-           users[index].lastName = newUser.lastName;
+            users[index].lastName = newUser.lastName;
         }
     }
-
-
-    function LoginController($location) {
-            var vm= this;
-       
-         //$scope.hello= "Hello from login controller"
-         // improve
-         vm.login=function (username,password){
-         for(var i in users)
-         {
-         if(users[i].username === username && users[i].password === password)
-         { $location.url("/profile/"+users[i]._id);
-         console.log("yayieeee");}
-
-         else
-         {vm.error = "user not found";}
-         //console.log(vm.password)
-
-         }
-         }
-             }
-})();
+    })();
+  
