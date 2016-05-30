@@ -7,7 +7,7 @@
                 Websites
             </a>
             <p class="navbar-text pull-right">
-                <a href="website-new.view.client.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/new "  class="navbar-link">
                   <span class="glyphicon glyphicon-plus">
                   </span>
                 </a>
@@ -16,6 +16,24 @@
     </div>
 </nav>
 
+<div class="container">
+    <ul class="list-group">
+        <li  ng-repeat ="website in model.websites" class="list-group-item">
+            <a href="#/user/{{model.userId}}/website/{{website._id}}/page">
+                {{website.name}}
+            </a>
+            <a href="#/user/{{model.userId}}/website/{{website._id}}">
+                <span class="glyphicon glyphicon-cog pull-right glyph-in-list"></span>
+            </a>
+            <a href="#">
+                <span class="glyphicon glyphicon-play pull-right glyph-in-list"></span>
+            </a>
+        </li>
+    </ul>
+
+</div>
+
+<!--
 <div class="container">
     <ul class="list-group">
         <li class="list-group-item">
@@ -69,13 +87,14 @@
         </li>
     </ul>
 </div>
+-->
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-inner">
             <!--<a class="navbar-brand" href="#"></a>-->
             <p class="navbar-text">
-                <a href="#/profile.view.client.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
           <span class="glyphicon glyphicon-user pull-right text-primary">
           </span>
                 </a>

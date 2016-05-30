@@ -1,5 +1,36 @@
 
+<div class="container">
+    <div ng-if="model.error" class="alert alert-danger" >
+        {{model.error}}
+    </div>
+    <h1>Register</h1>
+    <label for="username">Username:</label>
+    <input ng-model="username"
+           class="form-control"
+           placeholder="username"
+           id="username"
+           type="text"
+           required />
+    <label for="password">Password</label>
+    <input ng-model="password"
+           class="form-control"
+           placeholder="password"
+           type="password"
+           id="password"
+           required />
+    <label for="passwordRepeat">Repeat Password:</label>
+    <input ng-model="passwordRepeat"
+           class="form-control"
+           placeholder="verify-password"
+           type="password"
+           id="passwordRepeat"/>
+    <a ng-click="model.createUser(username,password,passwordRepeat)" class="btn btn-primary btn-block">Register</a>
+    <a class="btn btn-danger btn-block"
+       href="#/login">Cancel</a>
+</div>
 
+
+<!--
 <div class="container">
     <h1>Register</h1>
 
@@ -10,4 +41,5 @@
     <a class="btn btn-danger btn-lg btn-block" type="submit" href="#/login">Cancel</a>
 
 </div>
+-->
 

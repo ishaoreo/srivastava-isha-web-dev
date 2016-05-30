@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
-    <meta charset="UTF-8">
-    <title>Widgets</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet" />
-</head>
-<body>
+
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
 
             <p class="navbar-text pull-left">
-                <a href="widget-list.view.client.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
+                   class="navbar-link">
           <span class="glyphicon glyphicon-chevron-left">
           </span>
                 </a>
@@ -30,7 +20,43 @@
     </div>
 </nav>
 
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a ng-click="model.createWdiget('HEADER')">Header</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWdiget('LABEL')">Label</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWdiget('HTML')">HTML</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWdiget('TEXT-INPUT')">Text Input</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWdiget('LINK')">Link</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWdiget('BUTTON')">Button</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWdiget('IMG')">Image</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWdiget('YOUTUBE')">YouTube</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWdiget('DATA-TABLE')">Data Table</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWdiget('REPEAT')">Repeater</a>
+        </li>
+    </ul>
 
+</div>
+
+<!--
 <div class="container">
     <ul class="list-group">
         <li class="list-group-item">
@@ -65,14 +91,14 @@
         </li>
     </ul>
 
-</div>
+</div>-->
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-inner">
             <!--<a class="navbar-brand" href="#"></a>-->
             <p class="navbar-text">
-                <a href="/assignment/user/profile.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
           <span class="glyphicon glyphicon-user pull-right text-primary">
           </span>
                 </a>
@@ -81,6 +107,3 @@
     </div>
 
 </nav>
-
-</body>
-</html>

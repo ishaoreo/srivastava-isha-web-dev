@@ -36,9 +36,59 @@
     </div>
 </nav>
 
-{{model.user}}
-
 <div class="container">
+    <div ng-if="model.message" class="alert alert-success">
+        {{model.message}}
+    </div>
+    <div ng-if="model.error" class="alert alert-danger" >
+        {{model.error}}
+    </div>
+    <form>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input ng-model="model.user.username"
+                   type="text"
+                   class="form-control"
+                   id="username"
+                   placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input ng-model="model.user.email"
+                   type="email"
+                   class="form-control"
+                   id="email"
+                   placeholder="john@yahoo.com">
+        </div>
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input ng-model="model.user.firstName"
+                   type="text"
+                   class="form-control"
+                   id="first-name"
+                   placeholder="Johnny">
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last name</label>
+            <input ng-model="model.user.lastName"
+                   type="text"
+                   class="form-control"
+                   id="last-name"
+                   placeholder="Dep">
+        </div>
+    </form>
+    <a class="btn btn-primary btn-block"
+       href="#/user/{{model.user._id}}/website">Websites</a>
+    <a class="btn btn-danger btn-block"
+       href="#/login">Log Out</a>
+</div>
+
+
+
+
+<!--{{model.user}}-->
+
+<!--<div class="container">
 
     <div class="alert alert-success alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -87,7 +137,7 @@
        href="#/website-list">Websites</a>
     <a class="btn btn-danger  btn-block"
        href="#/login.view.client.html">Logout</a>
-</div>
+</div>-->
 <!--
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
@@ -107,7 +157,7 @@
         <div class="navbar-inner">
             <a class="navbar-brand" href="#"></a>
             <p>
-                <a href="#" class="navbar-link">
+                <a href="#/user/{{model.user._id}}" class="navbar-link">
           <span class="glyphicon glyphicon-user pull-right text-primary">
           </span>
                 </a>
