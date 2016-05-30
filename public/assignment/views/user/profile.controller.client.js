@@ -13,13 +13,16 @@
 
         //var id = $routeParams['id'];
         var id = $routeParams.userId;
-        function init() {
+        
+        function init()
+        {
             vm.user = UserService.findUserById(id);
         }
         init();
 
 
-        function updateUser(newUser) {
+        function updateUser(newUser)
+        {
             var result = UserService.updateUser(id, newUser);
             if(result){
                 vm.message = "Your profile has been updated successfully!"

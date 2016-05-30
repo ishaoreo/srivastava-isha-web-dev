@@ -1,4 +1,4 @@
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
         .controller("EditPageController", EditPageController);
@@ -14,12 +14,13 @@
         function init() {
             vm.page = PageService.findPageById(vm.pageId);
         }
+
         init();
 
         function updatePage(page) {
             var result = PageService.updatePage(page);
-            if(result){
-                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+            if (result) {
+                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
             } else {
                 vm.error = "Unable to update page";
             }
@@ -27,8 +28,8 @@
 
         function deletePage(page) {
             var result = PageService.deletePage(page);
-            if(result){
-                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+            if (result) {
+                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
             } else {
                 vm.error = "Unable to delete page!";
             }

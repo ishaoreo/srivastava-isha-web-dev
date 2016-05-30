@@ -1,5 +1,4 @@
-
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
         .controller("NewWidgetController", NewWidgetController);
@@ -13,33 +12,33 @@
         vm.createWdiget = createWdiget;
 
         function createWdiget(widgetName) {
-            if(widgetName === 'HEADER'){
+            if (widgetName === 'HEADER') {
                 vm.selectedWidget = WidgetService.createNewHeader(vm.pageId);
-            } else if(widgetName === 'LABEL'){
+            } else if (widgetName === 'LABEL') {
 
-            } else if(widgetName === 'HTML'){
+            } else if (widgetName === 'HTML') {
                 vm.selectedWidget = WidgetService.createNewHTML(vm.pageId);
 
-            } else if(widgetName === 'TEXT-INPUT'){
+            } else if (widgetName === 'TEXT-INPUT') {
 
-            } else if(widgetName === 'LINK'){
+            } else if (widgetName === 'LINK') {
 
-            } else if(widgetName === 'BUTTON'){
+            } else if (widgetName === 'BUTTON') {
 
-            } else if(widgetName === 'IMG'){
+            } else if (widgetName === 'IMG') {
                 vm.selectedWidget = WidgetService.createNewIMG(vm.pageId);
 
-            } else if(widgetName === 'YOUTUBE'){
+            } else if (widgetName === 'YOUTUBE') {
                 vm.selectedWidget = WidgetService.createNewYoutube(vm.pageId);
 
-            } else if(widgetName === 'DATA-TABLE'){
+            } else if (widgetName === 'DATA-TABLE') {
 
-            } else if(widgetName === 'REPEAT'){
+            } else if (widgetName === 'REPEAT') {
 
             } else {
 
             }
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+vm.selectedWidget._id);
+            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + vm.selectedWidget._id);
 
         }
 

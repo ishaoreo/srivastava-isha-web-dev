@@ -3,12 +3,14 @@
         .module("WebAppMaker")
         .controller("PageListController", PageListController);
 
-    function PageListController($routeParams, PageService) {
+    function PageListController($routeParams, PageService) 
+    {
         var vm = this;
         vm.userId = $routeParams.userId;
         vm.websiteId = $routeParams.websiteId;
 
-        function init() {
+        function init() 
+        {
             vm.pages = PageService.findPagesForWebsiteId(vm.websiteId);
         }
         init();

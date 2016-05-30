@@ -19,18 +19,24 @@
 
         function updateWebsite(website){
             var result = WebsiteService.updateWebsite(website);
-            if(result){
+            if(result)
+            {
                 $location.url("/user/"+vm.userId+"/website");
-            } else {
+            } 
+            else 
+            {
                 vm.error = "Unable to update website";
             }
         }
 
         function deleteWebsite(websiteId) {
             var result = WebsiteService.deleteWebsite(websiteId);
-            if(result){
+            if(result)
+            {
                 $location.url("/user/"+vm.userId+"/website");
-            } else {
+            }
+            else 
+            {
                 vm.error = "Unable to delete website";
             }
         }

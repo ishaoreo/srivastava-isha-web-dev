@@ -25,39 +25,44 @@
 
         var index=-1
 
-for(var i in users) {
-    if (users[i]._id === id) {
+        for(var i in users)
         {
-            vm.user = users[i];
-            index= i;
+            if (users[i]._id === id)
+            {
+                {
+                    vm.user = users[i];
+                    index= i;
+                }
+            }
         }
-    }
-}
+
+
         function updateUser(newUser) {
-console.log(newUser);
+            console.log(newUser);
             users[index].firstName = newUser.firstName;
-           users[index].lastName = newUser.lastName;
+            users[index].lastName = newUser.lastName;
         }
     }
 
 
     function LoginController($location) {
-            var vm= this;
-       
-         //$scope.hello= "Hello from login controller"
-         // improve
-         vm.login=function (username,password){
-         for(var i in users)
-         {
-         if(users[i].username === username && users[i].password === password)
-         { $location.url("/profile/"+users[i]._id);
-         console.log("yayieeee");}
+        var vm = this;
 
-         else
-         {vm.error = "user not found";}
-         //console.log(vm.password)
+        //$scope.hello= "Hello from login controller"
+        // improve
+        vm.login = function (username, password) {
+            for (var i in users) {
+                if (users[i].username === username && users[i].password === password) {
+                    $location.url("/profile/" + users[i]._id);
+                    console.log("yayieeee");
+                }
 
-         }
-         }
-             }
+                else {
+                    vm.error = "user not found";
+                }
+                //console.log(vm.password)
+
+            }
+        }
+    }
 })();
