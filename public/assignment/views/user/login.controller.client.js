@@ -2,6 +2,9 @@
     angular
         .module("WebAppMaker")
         .controller("LoginController", LoginController);
+    //html and java script talk to each other via scope
+//model is instance of controller
+
 
     function LoginController($location, UserService) {
         var vm = this; //this is a view model
@@ -14,6 +17,9 @@
                 vm.error = "User Not Found!";
             }
         }
+
+
+       
     }
 })();
 
@@ -23,10 +29,11 @@
     angular
         .module("WebAppMaker")
         .controller("LoginController", LoginController);
-    //html and java script talk to each other via scope
-//model is instance of controller
+ //html and java script talk to each other via scope
+ //model is instance of controller
 
-    //given below is my array database kinda
+
+ //given below is my array database kinda
 
     
     
