@@ -61,6 +61,13 @@
         }
 
         function createNewHTML(pageId) {
+            var newHTML = {
+                _id : (new Date()).getTime()+"",
+                widgetType : "HTML",
+                pageId : pageId
+            };
+            widgets.push(newHTML);
+            return newHTML;
 
         }
 
