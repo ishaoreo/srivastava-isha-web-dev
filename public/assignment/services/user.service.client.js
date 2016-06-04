@@ -18,17 +18,24 @@
         return api;
 
         function createUser(username, password) {
-            if(!findUserByUsername(username)) {
-                var newUser = {
-                    _id: (new Date()).getTime() + "",
-                    username: username,
-                    password: password
-                }
-                users.push(newUser);
-                return newUser;
-            }
-            return null;
+            var user = {
+                username: username,
+                password: password
+            };
+            return $http.post("/api/user", user);
         }
+
+            // if(!findUserByUsername(username)) {
+            //     var newUser = {
+            //         _id: (new Date()).getTime() + "",
+            //         username: username,
+            //         password: password
+            //     }
+            //     users.push(newUser);
+            //     return newUser;
+            // }
+            // return null;
+
 
         function deleteUser(userId) {}
         function updateUser(id, newUser) {

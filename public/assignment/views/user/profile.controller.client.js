@@ -16,7 +16,11 @@
         
         function init()
         {
-            vm.user = UserService.findUserById(id);
+           UserService
+               .findUserById(id)
+               .then(function(response){
+                   vm.user=response.data
+               })
         }
         init();
 

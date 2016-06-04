@@ -16,6 +16,17 @@ module.exports = function (app) { // u need sum1 to call u
     app.get("/api/user", getUsers);
     //app.get("/api/user?username=:username",findUserByUsername);
     app.get("/api/user/:userId", findUserById);
+    app.post("/api/user",createUser);
+
+    function createUser(req,res){
+        var user = req.body;
+        user._id = (new Date()).getTime()+"";
+        console.log(user);
+        users.push(user);
+        console.log(users);
+        res.send(user);
+
+    }
 
     function getUsers(req, res) {
         var username = req.query['username'];
