@@ -6,7 +6,7 @@
 
     
 
-    function UserService() {
+    function UserService($http) {
         var api = {
             createUser : createUser,
             findUserByUsernameAndPassword : findUserByUsernameAndPassword,
@@ -62,11 +62,15 @@
         }
 
         function findUserByUsernameAndPassword(username, password){
-            for( var i in users) {
-                if(users[i].username === username && users[i].password === password){
-                    return users[i];
-                }
-            }
+            var url = "/api/user?username="+username+"&password" +password;
+           return $http.get(url);
+
+
+            // for( var i in users) {
+            //     if(users[i].username === username && users[i].password === password){
+            //         return users[i];
+            //     }
+            // }
             return null;
         }
     }

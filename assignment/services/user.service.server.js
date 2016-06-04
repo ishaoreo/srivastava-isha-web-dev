@@ -33,6 +33,7 @@ module.exports = function (app) { // u need sum1 to call u
         }
 
         res.send(users);
+        return;
     }
 
 
