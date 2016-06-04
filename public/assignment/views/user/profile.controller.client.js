@@ -28,11 +28,11 @@
         function updateUser(newUser)
         {
             var result = UserService.updateUser(id, newUser);
-            if(result){
-                vm.message = "Your profile has been updated successfully!"
-            } else {
-                vm.error = "The profile cannot be updated!"
-            }
+            // if(result){
+            //     vm.message = "Your profile has been updated successfully!"
+            // } else {
+            //     vm.error = "The profile cannot be updated!"
+            // }
         }
     }
 })();

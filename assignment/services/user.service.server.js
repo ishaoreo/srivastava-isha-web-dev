@@ -17,6 +17,24 @@ module.exports = function (app) { // u need sum1 to call u
     //app.get("/api/user?username=:username",findUserByUsername);
     app.get("/api/user/:userId", findUserById);
     app.post("/api/user",createUser);
+    app.put("/api/user/:userId",updateUser);
+
+
+    function updateUser(req,res){
+        var id= req.params.userId;
+        var newUser =req.body;
+        for(var i in users){
+            if(users[i]._id === id){
+                users[i].firstName = newUser.firstName;
+                users[i].lastName = newUser.lastName;
+                res.send(200);
+                return;
+                //return true;
+            }
+        }
+        res.send(400);
+
+    }
 
     function createUser(req,res){
         var user = req.body;
