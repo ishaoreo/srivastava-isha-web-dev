@@ -6,8 +6,8 @@
 
     function ProfileController($routeParams, $location, UserService) {
         var vm = this; //this is a view model
-
         vm.updateUser = updateUser;
+        vm.unregister = unregister;
 
         var index = -1;
 
@@ -24,10 +24,35 @@
         }
         init();
 
+        function unregister(){
+            UserService
+                .deleteUser(id)
+                .then(
+                    function(){
+                        $location.url("/login");
+                    },
+                    function () {
+                        vm.error = "unable to remove user"
+                    }
+                );
+        }
+
 
         function updateUser(newUser)
         {
-            var result = UserService.updateUser(id, newUser);
+            //var result =
+                UserService
+                    .updateUser(id, newUser)
+                    .then(
+                        function(response){
+                        vm.success = 'updated successfully';
+                        },
+                        function(error)
+                        {
+                            vm.error="unable to update user";
+                        }
+                    )
+
             // if(result){
             //     vm.message = "Your profile has been updated successfully!"
             // } else {

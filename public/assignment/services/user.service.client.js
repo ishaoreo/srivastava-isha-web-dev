@@ -34,7 +34,10 @@
             // }
             // return null;
 
-        function deleteUser(userId) {}
+        function deleteUser(userId) {
+            var url = "/api/user/" + userId;
+            return $http.delete(url);
+        }
             
         function updateUser(id, newUser) {
             var url = "/api/user/" + id;

@@ -18,7 +18,20 @@ module.exports = function (app) { // u need sum1 to call u
     app.get("/api/user/:userId", findUserById);
     app.post("/api/user",createUser);
     app.put("/api/user/:userId",updateUser);
+    app.delete("/api/user/:userId",deleteUser);
 
+    function deleteUser(req,res){
+        var id = req.params.userId;
+
+        for(var i in users){
+            if(users[i]._id === id) {
+                users.splice(i, 1);
+                res.send(200);
+                return;
+            }
+        }
+        res.send(400);
+    }
 
     function updateUser(req,res){
         var id= req.params.userId;
@@ -98,6 +111,8 @@ module.exports = function (app) { // u need sum1 to call u
         }
         res.send({});
     }
+
+
 
 
 };
