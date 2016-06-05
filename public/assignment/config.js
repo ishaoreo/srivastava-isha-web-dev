@@ -9,6 +9,11 @@
             // .when("/", {
             //     templateUrl : "views/home.html"
             // })
+            .when("/flickr",{
+                templateUrl: "views/widget/widget-flickr-search.view.client.html",
+                controller : "FlickrImageSearchController",
+                controllerAs : "model"
+            })
             .when("/login", {
                 templateUrl : "views/user/login.view.client.html",
                 controller : "LoginController",
