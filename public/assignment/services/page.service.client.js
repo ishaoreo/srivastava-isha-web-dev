@@ -38,7 +38,7 @@
             // }
             // return null;
             var url="/api/page/"+page._id;
-            return $http.put(url,page)
+            return $http.put(url,page);
         };
 
         function deletePage(page) {
@@ -49,6 +49,7 @@
             //     }
             // }
             // return false;
+            console.log("")
             var url= "/api/page/"+page._id;
            return $http.delete(url);
         }
@@ -60,7 +61,7 @@
             //     }
             // }
             // return null;
-            var url= "/api/page/"+page._id;
+            var url= "/api/page/"+id;
            return $http.get(url);
         };
 

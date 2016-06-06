@@ -17,7 +17,7 @@
                 WebsiteService
                     .findWebsiteById(vm.websiteId)
                     .then (function (response){
-                        vm.website=reponse.data;
+                        vm.website=response.data;
                     });
         }
         init();
@@ -29,6 +29,7 @@
                     .then(
                         function (response) {
                         vm.success = 'updated successfully';
+                            $location.url("/user/"+vm.userId+"/website");
                     },
                         function (error)
                         {

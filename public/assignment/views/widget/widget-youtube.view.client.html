@@ -1,3 +1,102 @@
+
+
+
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!--Left arrow-->
+        <p class="navbar-text pull-left">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </p>
+        <span>
+        <!--heading on the nav bar-->
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand thick">
+                <b>Widget Edit</b>
+            </a>
+        </p>
+        </span>
+        <!--tick mark-->
+        <p class="navbar-text pull-right">
+            <a  ng-click = "model.updateWidget(model.widget)"
+                class="navbar-link">
+                <span class="glyphicon glyphicon-ok"></span>
+            </a>
+        </p>
+
+    </div>
+</nav>
+
+
+
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input ng-model="model.widget.name"
+                   type="text"
+                   class="form-control"
+                   id="Name">
+        </div>
+    </form>
+
+    <form>
+        <div class="form-group">
+            <label for="Title">Text</label>
+            <input  ng-model="model.widget.title"
+                    type="text"
+                    class="form-control"
+                    id="Title">
+        </div>
+    </form>
+
+
+    <form>
+        <div class="form-group">
+            <label for="URL">URL</label>
+            <input  ng-model="model.widget.url"
+                    type="text"
+                    class="form-control"
+                    id="URL"
+                    placeholder="enter the youtube URL"
+            >
+        </div>
+    </form>
+
+
+    <form>
+        <div class="form-group">
+            <label for="width">Width</label>
+            <input ng-model="model.widget.width"
+                   type="text"
+                   class="form-control"
+                   id="width">
+        </div>
+    </form>
+
+
+    <a class="btn btn-danger btn-block "
+       ng-click="model.deleteWidget(model.widget)">Delete</a>
+
+
+</div>
+
+<!-- Footer -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <p class="navbar-text pull-right">
+            <a href="#/user/{{model.userId}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </p>
+
+    </div>
+</nav>
+
+
+<!--
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -49,7 +148,7 @@
     </form>
     <a ng-click="model.deleteWidget(model.widget)" class="btn btn-danger btn-block">Delete</a>
 </div>
-<!--
+&lt;!&ndash;
 <div class="container">
     &lt;!&ndash;<div class="alert alert-success alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -74,12 +173,12 @@
         </div>
     </form>
     <a class="btn btn-danger btn-block" href="widget-list.view.client.html">Delete</a>
-</div>-->
+</div>&ndash;&gt;
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-inner">
-            <!--<a class="navbar-brand" href="#"></a>-->
+            &lt;!&ndash;<a class="navbar-brand" href="#"></a>&ndash;&gt;
             <p class="navbar-text">
                 <a href="#/user/{{model.userId}}" class="navbar-link">
           <span class="glyphicon glyphicon-user pull-right text-primary">
@@ -90,3 +189,4 @@
     </div>
 
 </nav>
+-->

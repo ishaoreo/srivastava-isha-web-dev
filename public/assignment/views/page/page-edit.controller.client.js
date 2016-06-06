@@ -12,21 +12,26 @@
         vm.updatePage = updatePage;
 
         function init() {
-            
+            console.log("inside 1st outer" + vm.pageId);
                 PageService
                     .findPageById(vm.pageId)
                     .then (function (response){
-                        vm.page=reponse.data;
+                        console.log("inside 1st init update func");
+                        vm.page=response.data;
+                        console.log(vm.page);
         })}
 
         init();
 
         function updatePage(page) {
+
                 PageService
                     .updatePage(page)
                     .then(
                         function(response){
                             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                            // console.log("inside 1st update func")
+                            // console.log(response.data)
                         },
                     function(error){
                         vm.error = "Unable to update page";
@@ -40,14 +45,14 @@
         }
 
         function deletePage(page) {
-            var result =
+         
                 PageService
                     .deletePage(page)
                     .then(
-                        function(){
+                        function(response){
                             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page"); 
                         },
-                        function (){
+                        function (error){
                             vm.error = "Unable to delete page!";    
                         }
                     );
@@ -56,7 +61,7 @@
             // } else {
             //     vm.error = "Unable to delete page!";
             // }
-        };
+        }
     };
 
 })();

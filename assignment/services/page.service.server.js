@@ -15,7 +15,7 @@ app.post("/api/website/:websiteId/page",createPage);
     app.get("/api/website/:websiteId/page",findAllPagesForWebsite);
     app.get("/api/page/:pageId",findPageById);
   app.put("/api/page/:pageId",updatePage);
- app.delete("/api/page/:pageId ",deletePage);
+ app.delete("/api/page/:pageId",deletePage);
 
 
     function createPage(req, res) {
@@ -38,7 +38,8 @@ app.post("/api/website/:websiteId/page",createPage);
     }
 
     function findPageById(req,res) {
-        var pageId = req.params._id;
+        var pageId = req.params.pageId;
+        
         for (var i in pages) {
             if (pages[i]._id === pageId) {
                 res.send(pages[i]);
@@ -49,7 +50,7 @@ app.post("/api/website/:websiteId/page",createPage);
     }
 
     function updatePage(req,res){
-        var pageId=req.params._id;
+        var pageId=req.params.pageId;
         var page =req.body;
 
         for(var i in pages) {
@@ -65,8 +66,8 @@ app.post("/api/website/:websiteId/page",createPage);
 
     function deletePage(req,res)
     {
-        var pageId=req.params._id;
-        var page =req.body;
+        var pageId=req.params.pageId;
+
 
         for(var i in pages) {
             if(pages[i]._id === pageId){
