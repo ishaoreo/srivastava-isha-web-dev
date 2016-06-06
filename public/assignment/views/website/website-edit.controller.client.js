@@ -13,32 +13,61 @@
         vm.updateWebsite = updateWebsite;
 
         function init() {
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+            //vm.website =
+                WebsiteService
+                    .findWebsiteById(vm.websiteId)
+                    .then (function (response){
+                        vm.website=reponse.data;
+                    });
         }
         init();
 
         function updateWebsite(website){
-            var result = WebsiteService.updateWebsite(website);
-            if(result)
-            {
-                $location.url("/user/"+vm.userId+"/website");
-            } 
-            else 
-            {
-                vm.error = "Unable to update website";
-            }
-        }
+            var result = 
+                WebsiteService
+                    .updateWebsite(website)
+                    .then(
+                        function (response) {
+                        vm.success = 'updated successfully';
+                    },
+                        function (error)
+                        {
+                            vm.error="unable to update website";
+                        }
+        )}
+        
+
+
+
+        //     if(result)
+        //     {
+        //         $location.url("/user/"+vm.userId+"/website");
+        //     } 
+        //     else 
+        //     {
+        //         vm.error = "Unable to update website";
+        //     }
+        // }
 
         function deleteWebsite(websiteId) {
-            var result = WebsiteService.deleteWebsite(websiteId);
-            if(result)
-            {
-                $location.url("/user/"+vm.userId+"/website");
-            }
-            else 
-            {
-                vm.error = "Unable to delete website";
-            }
+            var result =
+                WebsiteService
+                    .deleteWebsite(websiteId)
+                    .then (
+                        function () {
+                        $location.url("/user/" + vm.userId + "/website");
+                    },
+                        function () {
+                            vm.error = "Unable to delete website";
+                    });
+            // if(result)
+            // {
+            //     $location.url("/user/"+vm.userId+"/website");
+            // }
+            // else 
+            // {
+            //     vm.error = "Unable to delete website";
+            // }
         }
     }
 

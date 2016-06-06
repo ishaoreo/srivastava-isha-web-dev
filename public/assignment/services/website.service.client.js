@@ -14,7 +14,7 @@
         { "_id": "789", "name": "Powerpuff girls",       "developerId": "234" }
     ];
 
-    function WebsiteService (){
+    function WebsiteService ($http){
         var api = {
             findWebsitesForUserId : findWebsitesForUserId,
             findWebsiteById : findWebsiteById,
@@ -30,48 +30,60 @@
                 description : description,
                 developerId : developerId
             };
-            websites.push(newWebsite);
-            return newWebsite;
+            // websites.push(newWebsite);
+            return $http.post("/api/user/"+ developerId +"/website",newWebsite);
+            
         }
 
         function updateWebsite(website) {
-            for(var i in websites) {
-                if(websites[i]._id === website._id){
-                    websites[i].name = website.name;
-                    websites[i].description = website.description;
-                    return websites[i];
-                }
-            }
-            return null;
+            // for(var i in websites) {
+            //     if(websites[i]._id === website._id){
+            //         websites[i].name = website.name;
+            //         websites[i].description = website.description;
+            //         return websites[i];
+            //     }
+            // }
+            // return null;
+            var url = "/api/website/" + website._id;
+            return $http.put(url, website);
         }
 
         function deleteWebsite (websiteId) {
-            for(var i in websites) {
-                if(websites[i]._id === websiteId){
-                    websites.splice(i,1);
-                    return true;
-                }
-            }
-            return false;
+            // for(var i in websites) {
+            //     if(websites[i]._id === websiteId){
+            //         websites.splice(i,1);
+            //         return true;
+            //     }
+            // }
+            // return false;
+            var url = "/api/website/"+websiteId;
+            return $http.delete(url);
+
         }
 
+
         function findWebsiteById(websiteId) {
-            for (var i in websites){
-                if(websites[i]._id === websiteId){
-                    return websites[i];
-                }
-            }
-            return null;
+            // for (var i in websites){
+            //     if(websites[i]._id === websiteId){
+            //         return websites[i];
+            //     }
+            // }
+            // return null;
+
+            var url = "/api/website/" + websiteId;
+            return $http.get(url);
         }
 
         function findWebsitesForUserId(userId) {
-            var resultSet = [];
-            for (var i in websites){
-                if(websites[i].developerId === userId){
-                    resultSet.push(websites[i]);
-                }
-            }
-            return resultSet;
+            var url = "/api/user/" + userId + "/website";
+            // var resultSet = [];
+            // for (var i in websites){
+            //     if(websites[i].developerId === userId){
+            //         resultSet.push(websites[i]);
+            //     }
+            // }
+            // return resultSet;
+            return $http.get(url);
         }
     }
 })();

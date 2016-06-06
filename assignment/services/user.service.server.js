@@ -83,11 +83,12 @@ module.exports = function (app) { // u need sum1 to call u
         // req.params["userId"];
         console.log(req.params.userId);
         var id = req.params.userId;
-        for (var i in users)
+        for (var i in users) {
             if (users[i]._id === id) {
                 res.send(users[i]);
                 return;
             }
+        }
         return res.send({});
     }
 
@@ -111,8 +112,4 @@ module.exports = function (app) { // u need sum1 to call u
         }
         res.send({});
     }
-
-
-
-
 };
