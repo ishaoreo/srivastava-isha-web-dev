@@ -2,9 +2,9 @@
  * Created by isha srivastava on 31-May-16.
  */
 
-module.exports = function (app) { // u need sum1 to call u
+module.exports = function (app,models) { // u need sum1 to call u
 
-
+var userModel = models.userModel;
     var users = [
         {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
         {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
@@ -21,41 +21,84 @@ module.exports = function (app) { // u need sum1 to call u
     app.delete("/api/user/:userId",deleteUser);
 
     function deleteUser(req,res){
+
         var id = req.params.userId;
 
-        for(var i in users){
-            if(users[i]._id === id) {
-                users.splice(i, 1);
-                res.send(200);
-                return;
-            }
-        }
-        res.send(400);
+        userModel
+            .deleteUser(id)
+            .then(
+                function(stats) {
+                    console.log(stats);
+                    res.send(200);
+                },
+                function(error) {
+                    res.statusCode(404).send(error);
+                }
+            );
+        // var id = req.params.userId;
+        //
+        // for(var i in users){
+        //     if(users[i]._id === id) {
+        //         users.splice(i, 1);
+        //         res.send(200);
+        //         return;
+        //     }
+        // }
+        // res.send(400);
     }
 
     function updateUser(req,res){
-        var id= req.params.userId;
-        var newUser =req.body;
-        for(var i in users){
-            if(users[i]._id === id){
-                users[i].firstName = newUser.firstName;
-                users[i].lastName = newUser.lastName;
-                res.send(200);
-                return;
-                //return true;
-            }
-        }
-        res.send(400);
+        var id = req.params.userId;
+        var newUser = req.body;
 
+        userModel
+            .updateUser(id, newUser)
+            .then(
+                function(stats) {
+                    console.log(stats);
+                    res.send(200);
+                },
+                function(error) {
+                    res.statusCode(404).send(error);
+                }
+            );
     }
+        // var id= req.params.userId;
+        // var newUser =req.body;
+        // for(var i in users){
+        //     if(users[i]._id === id){
+        //         users[i].firstName = newUser.firstName;
+        //         users[i].lastName = newUser.lastName;
+        //         res.send(200);
+        //         return;
+        //         //return true;
+        //     }
+        // }
+        // res.send(400);
+
+
 
     function createUser(req,res){
         var user = req.body;
-        user._id = (new Date()).getTime()+"";
-        console.log(user);
-        users.push(user);
-        console.log(users);
-        res.send(user);
+
+      //  userModel.createUser(user);
+        userModel
+            .createUser(user)
+            .then(
+                function (user) {
+                    console.log(user);
+                    res.json(user);
+                },
+                function (error) {
+                    res.statusCode(400).send(error);
+
+                }
+           );
+        // user._id = (new Date()).getTime()+"";
+        // console.log(user);
+        // users.push(user);
+        // console.log(users);
+        // res.send(user);
 
     }
 
@@ -83,12 +126,23 @@ module.exports = function (app) { // u need sum1 to call u
         // req.params["userId"];
         console.log(req.params.userId);
         var id = req.params.userId;
-        for (var i in users) {
-            if (users[i]._id === id) {
-                res.send(users[i]);
-                return;
-            }
-        }
+
+        userModel.findUserById(id)
+            .then(
+                function(user)
+                {
+                    res.send(user);
+                },
+                function (error) {
+                    res.statusCode(404).send(error);
+                }
+            );
+        // for (var i in users) {
+        //     if (users[i]._id === id) {
+        //         res.send(users[i]);
+        //         return;
+        //     }
+       // }
         return res.send({});
     }
 
@@ -104,7 +158,9 @@ module.exports = function (app) { // u need sum1 to call u
     }
 
     function findUserByUsername(username, res) {
-        for (var i in users) {
+
+
+            for (var i in users) {
             if (users[i].username === username) {
                 res.send(users[i]);
                 return;
@@ -112,4 +168,4 @@ module.exports = function (app) { // u need sum1 to call u
         }
         res.send({});
     }
-};
+}
