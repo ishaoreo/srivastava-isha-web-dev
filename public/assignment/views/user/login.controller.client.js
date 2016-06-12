@@ -17,7 +17,7 @@
                 var user=response.data;
 
 
-            if(user._id) {
+            if(user) {
                 $location.url("/user/"+user._id);
             } else {
                 vm.error = "User Not Found!";

@@ -4,19 +4,19 @@
     angular
         .module("WebAppMaker")
         .factory("WebsiteService", WebsiteService);
-
-    var websites = [
-        { "_id": "123", "name": "Facebook",    "developerId": "456" },
-        { "_id": "234", "name": "Fantasyland",     "developerId": "456" },
-        { "_id": "456", "name": "Castle",     "developerId": "456" },
-        { "_id": "567", "name": "Taylor Swift", "developerId": "123" },
-        { "_id": "678", "name": "Wonder Woman",    "developerId": "123" },
-        { "_id": "789", "name": "Powerpuff girls",       "developerId": "234" }
-    ];
+    //
+    // var websites = [
+    //     { "_id": "123", "name": "Facebook",    "developerId": "456" },
+    //     { "_id": "234", "name": "Fantasyland",     "developerId": "456" },
+    //     { "_id": "456", "name": "Castle",     "developerId": "456" },
+    //     { "_id": "567", "name": "Taylor Swift", "developerId": "123" },
+    //     { "_id": "678", "name": "Wonder Woman",    "developerId": "123" },
+    //     { "_id": "789", "name": "Powerpuff girls",       "developerId": "234" }
+    // ];
 
     function WebsiteService ($http){
         var api = {
-            findWebsitesForUserId : findWebsitesForUserId,
+            findWebsitesByUserId : findWebsitesByUserId,
             findWebsiteById : findWebsiteById,
             createWebsite : createWebsite,
             updateWebsite : updateWebsite,
@@ -25,10 +25,10 @@
         return api;
         function createWebsite(developerId, name, description) {
             var newWebsite = {
-                _id : (new Date()).getTime()+"",
+                //_id : (new Date()).getTime()+"",
                 name : name,
-                description : description,
-                developerId : developerId
+                description : description
+                //developerId : developerId
             };
             // websites.push(newWebsite);
             return $http.post("/api/user/"+ developerId +"/website",newWebsite);
@@ -70,11 +70,11 @@
             // }
             // return null;
 
-            var url = "/api/website/" + websiteId;
+            var url = "/api/website/"+websiteId;
             return $http.get(url);
         }
 
-        function findWebsitesForUserId(userId) {
+        function findWebsitesByUserId(userId) { 
             var url = "/api/user/" + userId + "/website";
             // var resultSet = [];
             // for (var i in websites){

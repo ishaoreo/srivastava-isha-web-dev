@@ -21,7 +21,7 @@
         // init();
 
         function createWebsite(name, description) { //ask if there is a need for this
-          
+          //console.log("createwebsite controller");
                 WebsiteService
                     .createWebsite(vm.userId, name, description)
                     .then(
@@ -30,7 +30,6 @@
                             var website=response.data;
                 } ,
                         function(error){
-
                     vm.error = "Unable to create website";
                 }
             );

@@ -116,9 +116,10 @@ var userModel = models.userModel;
         else if (username) {
             findUserByUsername(username, res)
         }
+        else
 
-        res.send(users);
-        return;
+         res.send(users);
+        // return;
     }
 
 
@@ -143,29 +144,50 @@ var userModel = models.userModel;
         //         return;
         //     }
        // }
-        return res.send({});
+       //  return res.send({});
     }
 
     function findUserByCredentials(username, password, res) {
-        for (var i in users) {
-
-            if (users[i].username === username && users[i].password === password) {
-                res.send(users[i]);
-                return;
-            }
-        }
-        res.send({});
+        userModel
+            .findUserByCredentials(username, password)
+            .then(
+                function (user) {
+                    res.json(user);
+                },
+                function(err) {
+                    res.statusCode(404).send(err);
+                }
+            )
+        // for (var i in users) {
+        //
+        //     if (users[i].username === username && users[i].password === password) {
+        //         res.send(users[i]);
+        //         return;
+        //     }
+        // }
+        // res.send({});
     }
 
     function findUserByUsername(username, res) {
 
 
-            for (var i in users) {
-            if (users[i].username === username) {
-                res.send(users[i]);
-                return;
-            }
-        }
-        res.send({});
+        //     for (var i in users) {
+        //     if (users[i].username === username) {
+        //         res.send(users[i]);
+        //         return;
+        //     }
+        // }
+        // res.send({});
+
+        userModel
+            .findUserByUsername(username)
+            .then(
+                function(user) {
+                    res.json(user);
+                },
+                function(error) {
+                    res.statusCode(404).send(error);
+                }
+            );
     }
 }

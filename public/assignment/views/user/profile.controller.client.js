@@ -20,7 +20,7 @@
                .findUserById(id)
                .then(function(response){
                    vm.user=response.data
-               })
+               });
         }
         init();
 
@@ -51,7 +51,7 @@
                         {
                             vm.error="unable to update user";
                         }
-                    )
+                    );
 
             // if(result){
             //     vm.message = "Your profile has been updated successfully!"

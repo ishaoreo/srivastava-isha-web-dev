@@ -9,13 +9,15 @@
 
         function init() {
             WebsiteService
-                .findWebsitesForUserId(vm.userId)
+                .findWebsitesByUserId(vm.userId)
                 .then(function (response) {
                     console.log(response);
                     vm.websites = response.data;
-
-
-                });
+                },
+            function(response){
+                vm.error="Unable to fetch Websites";
+            }
+                );
 
     }
 
