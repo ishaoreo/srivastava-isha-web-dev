@@ -80,7 +80,7 @@ var userModel = models.userModel;
 
     function createUser(req,res){
         var user = req.body;
-
+        console.log ("user.service.server creating"+user);
       //  userModel.createUser(user);
         userModel
             .createUser(user)

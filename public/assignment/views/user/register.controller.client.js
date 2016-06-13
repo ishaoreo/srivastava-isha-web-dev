@@ -20,10 +20,10 @@
                     } else {
                         vm.error = "Cannot register Now!"
                     }
-                })
+                });
 
             // }
-        };
+        }
 
         function validation(username,password,passwordRepeat){
             if(username==null || password==null){
