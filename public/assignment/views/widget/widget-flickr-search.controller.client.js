@@ -1,6 +1,4 @@
-/**
- * Created by Rashmi_Dwaraka on 5/26/2016.
- */
+
 (function(){
     angular
         .module("WebAppMaker")
