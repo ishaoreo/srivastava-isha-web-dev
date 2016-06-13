@@ -7,8 +7,8 @@
         var start = -1;
         var end = -1;
         function linker(scope, element, attributes) {
-            // $(element)
-            //     .find(".container")
+           //  $(element)
+             //   .find(".container")
             $(".container")
                 .sortable({
                     axis : 'y',
