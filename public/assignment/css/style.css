@@ -1,25 +1,117 @@
-input.form-control
-{margin-bottom: 10px;}
-body
-{padding-top: 61px;
-padding-bottom: 50px;}
+input.form-control {
+    margin-bottom: 5px;
+}
 
-/*this below thing applies only to nvbar which is a paragraph*/
-p.navbar-text.pull-right
-{margin-right: 14px;}
+form div label {
+    margin-bottom: 0px;
+}
 
-p.navbar-text.pull-left
-{margin-left: 14px;}
+form div textarea {
+    margin-bottom: 5px;
+}
 
-span.glyphicon.glyphicon-eye-open
-{padding-left: 10px;}
+body {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
-.jga-widget-tool
-{position: absolute;
-    right:15px;
-background-color: white;
-padding-bottom: 5px;
-padding-left: 5px;
-padding-bottom-left-radius: 12px;
-opacity: 0.7;}
+p.navbar-text.pull-right {
+    margin-right: 15px;
+}
+
+p.navbar-text.pull-left {
+    margin-left: 15px;
+}
+
+.navbar-footer {
+    width: 100%;
+    height: 10%;
+}
+
+.navbar-header {
+    width : 100%;
+    height: 10%;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.jga-widget {
+    margin-bottom: 5px;
+}
+
+.jga-widget-tool {
+    position: absolute;
+    right: 15px;
+    background-color: white;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom-left-radius: 8px;
+    opacity: 0.7;
+}
+
+.custom-btn-group {
+    margin-top: 5px;
+}
+.navbar-brand {
+    cursor: pointer;
+}
+
+div.form-group {
+    margin-bottom: 0px;
+}
+
+.list-group-item{
+    border-color: white;
+}
+
+span a.navbar-brand {
+    width:100%;
+    height:15px;
+    font-size: medium;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.youtube-widget {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+
+.youtube-widget iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*input.form-control*/
+/*{margin-bottom: 10px;}*/
+/*body*/
+/*{padding-top: 61px;*/
+/*padding-bottom: 50px;}*/
+
+/*!*this below thing applies only to nvbar which is a paragraph*!*/
+/*p.navbar-text.pull-right*/
+/*{margin-right: 14px;}*/
+
+/*p.navbar-text.pull-left*/
+/*{margin-left: 14px;}*/
+
+/*span.glyphicon.glyphicon-eye-open*/
+/*{padding-left: 10px;}*/
+
+/*.jga-widget-tool*/
+/*{position: absolute;*/
+    /*right:15px;*/
+/*background-color: white;*/
+/*padding-bottom: 5px;*/
+/*padding-left: 5px;*/
+/*padding-bottom-left-radius: 12px;*/
+/*opacity: 0.7;}*/
 

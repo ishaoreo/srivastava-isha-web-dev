@@ -1,6 +1,4 @@
-/**
- * Created by isha srivastava on 11-Jun-16.
- */
+
 
 module.exports = function() {
 
@@ -20,7 +18,14 @@ module.exports = function() {
     return api;
 
     function createPage(websiteId, page) {
+        console.log("inside page.model.servert create");
+        console.log("inside page.model.servert create"+websiteId);
+        console.log("inside page.model.servert create"+page);
+
+
         page._website = websiteId;
+
+        console.log(page);
         return Page.create(page);
     }
 

@@ -16,15 +16,18 @@
         return api;
 
         function createPage(websiteId, name, title) {
+            console.log("inside page.service.client create");
+            console.log(websiteId);
+            console.log(name);
             var newPage = {
-                _id : (new Date()).getTime()+"",
+               // _id : (new Date()).getTime()+"",
                 name : name,
-                title : title,
-                websiteId : websiteId
+                title : title
+                //websiteId : websiteId
             };
             //pages.push(newPage);
             //return newPage;
-            return $http.post("/api/website/+"+websiteId+"/page" ,newPage);
+            return $http.post("/api/website/"+websiteId+"/page" ,newPage);
 
         };
 

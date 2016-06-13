@@ -11,13 +11,23 @@
         vm.createPage = createPage;
 
         function createPage(name, title) {
-            var newPage = PageService.createPage(vm.websiteId, name, title);
-            if(newPage){
-                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
-            } else {
-                vm.error = "Unable to create page!";
-            }
-        };
+            //console.log(name);
+            //console.log(title);
+         PageService.createPage(vm.websiteId, name, title)
+             .then(
+                 function(response){
+                     var page =response.data;
+                     $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+                     
+
+                 },
+                 function(error){
+                     vm.error = "Unable to create page";
+                 }
+
+             );
+
+        }
     };
 
 })();

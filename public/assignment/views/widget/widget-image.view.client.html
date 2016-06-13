@@ -1,139 +1,235 @@
-
-
-<!--Header-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <!--Left arrow-->
-        <p class="navbar-text pull-left">
-            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
-                <span class="glyphicon glyphicon-chevron-left"></span>
+        <div class="navbar-header">
+            <p class="navbar-text pull-left">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                </a>
+            </p>
+            <a class="navbar-brand" href="#">
+                Widget Edit
             </a>
-        </p>
-        <span>
-        <!--heading on the nav bar-->
-        <p class="navbar-header pull-left">
-            <a class="navbar-brand thick">
-                <b>Widget Edit</b>
-            </a>
-        </p>
-        </span>
-        <!--tick mark-->
-        <p class="navbar-text pull-right">
-            <a ng-click = "model.updateWidget(model.widget)" class="navbar-link">
-                <span class="glyphicon glyphicon-ok"></span>
-            </a>
-        </p>
-
-    </div>
-</nav>
-
-
-<div class="container">
-    <form>
-        <div class="form-group">
-            <label for="Name">Name</label>
-            <input ng-model="model.widget.name"
-                   type="text"
-                   class="form-control"
-                   id="Name"
-                   placeholder="Name">
-        </div>
-    </form>
-
-    <form>
-        <div class="form-group">
-            <label for="Title">Text</label>
-            <input ng-model="model.widget.text"
-                   type="text"
-                   class="form-control"
-                   id="Title"
-                   placeholder="Enter Text">
-        </div>
-    </form>
-
-
-    <form>
-        <div class="form-group">
-            <label for="URL">URL</label>
-            <input ng-model="model.widget.url"
-                   type="text"
-                   class="form-control"
-                   id="URL"
-                   placeholder="enter the image URL Here">
-        </div>
-    </form>
-
-
-    <form>
-        <div class="form-group">
-            <label for="width">Width</label>
-            <input ng-model="model.widget.width"
-                   type="text"
-                   class="form-control"
-                   id="width"
-                   placeholder="enter the width of image">
-        </div>
-    </form>
-
-
-    <!--<form>-->
-    <!--<div class="form-group">-->
-    <!--<label ng-model="model.widget.file"-->
-    <!--for="exampleInputFile">Upload</label>-->
-    <!--<input-->
-    <!--type="file"-->
-    <!--id="exampleInputFile"-->
-    <!--class="form-control"/>-->
-    <!--</div>-->
-    <!--</form>-->
-
-    <form action="/api/upload"  method="post" enctype="multipart/form-data">
-        <input  name="myFile"   type="file" class="form-control"/>
-        <input  name="width"    value="{{model.widget.width}}" style="display: none"/>
-        <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
-        <input name="websiteId" value="{{model.websiteId}}" style="display: none"/>
-        <input name="userId" value="{{model.userId}}" style="display: none"/>
-        <input name="pageId" value="{{model.pageId}}" style="display: none"/>
-        <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
-    </form>
-
-
-    <p></p>
-
-    <a class="btn btn-primary btn-block " href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/flickr" >Choose From Flickr</a>
-
-    <p></p>
-
-    <a class="btn btn-danger btn-block "
-       ng-click="model.deleteWidget(model.widget)">Delete</a>
-
-
-</div>
-
-<!-- Footer -->
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <p class="navbar-text pull-right">
-            <a href="#/user/{{model.userId}}">
-                <span class="glyphicon glyphicon-user"></span>
-            </a>
-        </p>
-
-    </div>
-</nav>
-
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-inner">
-            <!--<a class="navbar-brand" href="#"></a>-->
-            <p class="navbar-text">
-                <a href="#/user/{{model.userId}}" class="navbar-link">
-          <span class="glyphicon glyphicon-user pull-right text-primary">
-          </span>
+            <p class="navbar-text pull-right">
+                <a ng-click="model.updateWidget(model.widget)" class="navbar-link">
+                  <span class="glyphicon glyphicon-ok">
+                  </span>
                 </a>
             </p>
         </div>
     </div>
 </nav>
+
+<div class="container">
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+    <!--<form>-->
+    <div class="form-group">
+        <label for="widget-name">Name*</label>
+        <input ng-model="model.widget.name"
+               type="text"
+               class="form-control"
+               id="widget-name"
+               placeholder="Name" required>
+    </div>
+    <div class="form-group">
+        <label for="widget-content">Text</label>
+        <input ng-model="model.widget.content"
+               type="text"
+               class="form-control"
+               id="widget-content"
+               placeholder="Description">
+    </div>
+    <div class="form-group">
+        <label for="widget-url">URL</label>
+        <input ng-model="model.widget.url"
+               type="text"
+               class="form-control"
+               id="widget-url"
+               value="http://blogs-images.forbes.com/sap/files/2016/04/Tesla-Motors-Model-3-Mainstream-04-08-2016-C-1200x800.jpg"
+               placeholder="http://blogs-images.forbes.com/sap/files/2016/04/Tesla-Motors-Model-3-Mainstream-04-08-2016-C-1200x800.jpg">
+    </div>
+    <div class="form-group">
+        <label for="widget-width">Width</label>
+        <input ng-model="model.widget.width"
+               type="text"
+               class="form-control"
+               id="widget-width"
+               value="100%"
+               placeholder="100%">
+    </div>
+    <form action="/api/upload"  method="post" enctype="multipart/form-data">
+        <input  name="myFile" type="file" class="form-control"/>
+        <input  name="width"  value="{{model.widget.width}}" style="display: none"/>
+        <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
+        <input  name="userId" value="{{model.userId}}"   style="display: none"/>
+        <input  name="pageId" value="{{model.widget.pageId}}"   style="display: none"/>
+        <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
+        <button type="submit"  class="btn btn-block btn-primary">Upload Image</button>
+    </form>
+    <!--<div class="form-group">-->
+    <!--<label for="widget-upload">Upload</label>-->
+    <!--<input ng-model ="model.widget.upload"-->
+    <!--type="file" class="form-control"-->
+    <!--name="files[]" id="widget-upload" multiple>-->
+    <!--</div>-->
+    <!--</form>-->
+    <div class="custom-btn-group">
+        <a class="btn btn-primary btn-block"
+           href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/flickr">Flickr Search</a>
+        <a ng-click="model.deleteWidget()"
+           class="btn btn-danger btn-block">Delete</a>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
+                  <span class="glyphicon glyphicon-user">
+                  </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<!--&lt;!&ndash;Header&ndash;&gt;-->
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+    <!--<div class="container-fluid">-->
+        <!--&lt;!&ndash;Left arrow&ndash;&gt;-->
+        <!--<p class="navbar-text pull-left">-->
+            <!--<a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">-->
+                <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+            <!--</a>-->
+        <!--</p>-->
+        <!--<span>-->
+        <!--&lt;!&ndash;heading on the nav bar&ndash;&gt;-->
+        <!--<p class="navbar-header pull-left">-->
+            <!--<a class="navbar-brand thick">-->
+                <!--<b>Widget Edit</b>-->
+            <!--</a>-->
+        <!--</p>-->
+        <!--</span>-->
+        <!--&lt;!&ndash;tick mark&ndash;&gt;-->
+        <!--<p class="navbar-text pull-right">-->
+            <!--<a ng-click = "model.updateWidget(model.widget)" class="navbar-link">-->
+                <!--<span class="glyphicon glyphicon-ok"></span>-->
+            <!--</a>-->
+        <!--</p>-->
+
+    <!--</div>-->
+<!--</nav>-->
+
+
+<!--<div class="container">-->
+    <!--<form>-->
+        <!--<div class="form-group">-->
+            <!--<label for="Name">Name</label>-->
+            <!--<input ng-model="model.widget.name"-->
+                   <!--type="text"-->
+                   <!--class="form-control"-->
+                   <!--id="Name"-->
+                   <!--placeholder="Name">-->
+        <!--</div>-->
+    <!--</form>-->
+
+    <!--<form>-->
+        <!--<div class="form-group">-->
+            <!--<label for="Title">Text</label>-->
+            <!--<input ng-model="model.widget.text"-->
+                   <!--type="text"-->
+                   <!--class="form-control"-->
+                   <!--id="Title"-->
+                   <!--placeholder="Enter Text">-->
+        <!--</div>-->
+    <!--</form>-->
+
+
+    <!--<form>-->
+        <!--<div class="form-group">-->
+            <!--<label for="URL">URL</label>-->
+            <!--<input ng-model="model.widget.url"-->
+                   <!--type="text"-->
+                   <!--class="form-control"-->
+                   <!--id="URL"-->
+                   <!--placeholder="enter the image URL Here">-->
+        <!--</div>-->
+    <!--</form>-->
+
+
+    <!--<form>-->
+        <!--<div class="form-group">-->
+            <!--<label for="width">Width</label>-->
+            <!--<input ng-model="model.widget.width"-->
+                   <!--type="text"-->
+                   <!--class="form-control"-->
+                   <!--id="width"-->
+                   <!--placeholder="enter the width of image">-->
+        <!--</div>-->
+    <!--</form>-->
+
+
+    <!--&lt;!&ndash;<form>&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+    <!--&lt;!&ndash;<label ng-model="model.widget.file"&ndash;&gt;-->
+    <!--&lt;!&ndash;for="exampleInputFile">Upload</label>&ndash;&gt;-->
+    <!--&lt;!&ndash;<input&ndash;&gt;-->
+    <!--&lt;!&ndash;type="file"&ndash;&gt;-->
+    <!--&lt;!&ndash;id="exampleInputFile"&ndash;&gt;-->
+    <!--&lt;!&ndash;class="form-control"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;</form>&ndash;&gt;-->
+
+    <!--<form action="/api/upload"  method="post" enctype="multipart/form-data">-->
+        <!--<input  name="myFile"   type="file" class="form-control"/>-->
+        <!--<input  name="width"    value="{{model.widget.width}}" style="display: none"/>-->
+        <!--<input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>-->
+        <!--<input name="websiteId" value="{{model.websiteId}}" style="display: none"/>-->
+        <!--<input name="userId" value="{{model.userId}}" style="display: none"/>-->
+        <!--<input name="pageId" value="{{model.pageId}}" style="display: none"/>-->
+        <!--<button type="submit"   class="btn btn-block btn-primary">Upload Image</button>-->
+    <!--</form>-->
+
+
+    <!--<p></p>-->
+
+    <!--<a class="btn btn-primary btn-block " href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/flickr" >Choose From Flickr</a>-->
+
+    <!--<p></p>-->
+
+    <!--<a class="btn btn-danger btn-block "-->
+       <!--ng-click="model.deleteWidget(model.widget)">Delete</a>-->
+
+
+<!--</div>-->
+
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+
+<!--<nav class="navbar navbar-default navbar-fixed-bottom">-->
+    <!--<div class="container-fluid">-->
+        <!--<p class="navbar-text pull-right">-->
+            <!--<a href="#/user/{{model.userId}}">-->
+                <!--<span class="glyphicon glyphicon-user"></span>-->
+            <!--</a>-->
+        <!--</p>-->
+
+    <!--</div>-->
+<!--</nav>-->
+
+
+<!--<nav class="navbar navbar-default navbar-fixed-bottom">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-inner">-->
+            <!--&lt;!&ndash;<a class="navbar-brand" href="#"></a>&ndash;&gt;-->
+            <!--<p class="navbar-text">-->
+                <!--<a href="#/user/{{model.userId}}" class="navbar-link">-->
+          <!--<span class="glyphicon glyphicon-user pull-right text-primary">-->
+          <!--</span>-->
+                <!--</a>-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->

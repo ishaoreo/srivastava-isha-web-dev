@@ -1,98 +1,172 @@
-
-
-
-<!--Header-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <!--Left arrow-->
-        <p class="navbar-text pull-left">
-            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
-                <span class="glyphicon glyphicon-chevron-left"></span>
+        <div class="navbar-header">
+            <p class="navbar-text pull-left">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                </a>
+            </p>
+            <a class="navbar-brand" href="#">
+                Widget Edit
             </a>
-        </p>
-        <span>
-        <!--heading on the nav bar-->
-        <p class="navbar-header pull-left">
-            <a class="navbar-brand thick">
-                <b>Widget Edit</b>
-            </a>
-        </p>
-        </span>
-        <!--tick mark-->
-        <p class="navbar-text pull-right">
-            <a  ng-click = "model.updateWidget(model.widget)"
-                class="navbar-link">
-                <span class="glyphicon glyphicon-ok"></span>
-            </a>
-        </p>
-
+            <p class="navbar-text pull-right">
+                <a ng-click="model.updateWidget(model.widget)" class="navbar-link">
+                  <span class="glyphicon glyphicon-ok">
+                  </span>
+                </a>
+            </p>
+        </div>
     </div>
 </nav>
 
-
-
 <div class="container">
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
     <form>
         <div class="form-group">
-            <label for="Name">Name</label>
+            <label for="widget-name">Name*</label>
             <input ng-model="model.widget.name"
                    type="text"
                    class="form-control"
-                   id="Name">
+                   id="widget-name" required>
         </div>
-    </form>
-
-    <form>
         <div class="form-group">
-            <label for="Title">Text</label>
-            <input  ng-model="model.widget.title"
-                    type="text"
-                    class="form-control"
-                    id="Title">
+            <label for="widget-content">Text</label>
+            <input ng-model="model.widget.content"
+                   type="text"
+                   class="form-control"
+                   id="widget-content"
+                   placeholder="Description">
         </div>
-    </form>
-
-
-    <form>
         <div class="form-group">
-            <label for="URL">URL</label>
-            <input  ng-model="model.widget.url"
-                    type="text"
-                    class="form-control"
-                    id="URL"
-                    placeholder="enter the youtube URL"
-            >
+            <label for="widget-url">URL</label>
+            <input ng-model="model.widget.url"
+                   type="text"
+                   class="form-control"
+                   id="widget-url"
+                   value="https://www.youtube.com/embed/aD4grQXZPfg"
+                   placeholder="https://www.youtube.com/embed/aD4grQXZPfg">
         </div>
-    </form>
-
-
-    <form>
         <div class="form-group">
-            <label for="width">Width</label>
+            <label for="widget-width">Width</label>
             <input ng-model="model.widget.width"
                    type="text"
                    class="form-control"
-                   id="width">
+                   id="widget-width"
+                   placeholder="100%">
         </div>
     </form>
-
-
-    <a class="btn btn-danger btn-block "
-       ng-click="model.deleteWidget(model.widget)">Delete</a>
-
-
+    <a ng-click="model.deleteWidget()"
+       class="btn btn-danger btn-block">Delete</a>
 </div>
-
-<!-- Footer -->
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <p class="navbar-text pull-right">
-            <a href="#/user/{{model.userId}}">
-                <span class="glyphicon glyphicon-user"></span>
-            </a>
-        </p>
-
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
+                  <span class="glyphicon glyphicon-user">
+                  </span>
+                </a>
+            </p>
+        </div>
     </div>
 </nav>
+
+
+<!--&lt;!&ndash;Header&ndash;&gt;-->
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+    <!--<div class="container-fluid">-->
+        <!--&lt;!&ndash;Left arrow&ndash;&gt;-->
+        <!--<p class="navbar-text pull-left">-->
+            <!--<a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">-->
+                <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+            <!--</a>-->
+        <!--</p>-->
+        <!--<span>-->
+        <!--&lt;!&ndash;heading on the nav bar&ndash;&gt;-->
+        <!--<p class="navbar-header pull-left">-->
+            <!--<a class="navbar-brand thick">-->
+                <!--<b>Widget Edit</b>-->
+            <!--</a>-->
+        <!--</p>-->
+        <!--</span>-->
+        <!--&lt;!&ndash;tick mark&ndash;&gt;-->
+        <!--<p class="navbar-text pull-right">-->
+            <!--<a  ng-click = "model.updateWidget(model.widget)"-->
+                <!--class="navbar-link">-->
+                <!--<span class="glyphicon glyphicon-ok"></span>-->
+            <!--</a>-->
+        <!--</p>-->
+
+    <!--</div>-->
+<!--</nav>-->
+
+
+
+<!--<div class="container">-->
+    <!--<form>-->
+        <!--<div class="form-group">-->
+            <!--<label for="Name">Name</label>-->
+            <!--<input ng-model="model.widget.name"-->
+                   <!--type="text"-->
+                   <!--class="form-control"-->
+                   <!--id="Name">-->
+        <!--</div>-->
+    <!--</form>-->
+
+    <!--<form>-->
+        <!--<div class="form-group">-->
+            <!--<label for="Title">Text</label>-->
+            <!--<input  ng-model="model.widget.title"-->
+                    <!--type="text"-->
+                    <!--class="form-control"-->
+                    <!--id="Title">-->
+        <!--</div>-->
+    <!--</form>-->
+
+
+    <!--<form>-->
+        <!--<div class="form-group">-->
+            <!--<label for="URL">URL</label>-->
+            <!--<input  ng-model="model.widget.url"-->
+                    <!--type="text"-->
+                    <!--class="form-control"-->
+                    <!--id="URL"-->
+                    <!--placeholder="enter the youtube URL"-->
+            <!--&gt;-->
+        <!--</div>-->
+    <!--</form>-->
+
+
+    <!--<form>-->
+        <!--<div class="form-group">-->
+            <!--<label for="width">Width</label>-->
+            <!--<input ng-model="model.widget.width"-->
+                   <!--type="text"-->
+                   <!--class="form-control"-->
+                   <!--id="width">-->
+        <!--</div>-->
+    <!--</form>-->
+
+
+    <!--<a class="btn btn-danger btn-block "-->
+       <!--ng-click="model.deleteWidget(model.widget)">Delete</a>-->
+
+
+<!--</div>-->
+
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<nav class="navbar navbar-default navbar-fixed-bottom">-->
+    <!--<div class="container-fluid">-->
+        <!--<p class="navbar-text pull-right">-->
+            <!--<a href="#/user/{{model.userId}}">-->
+                <!--<span class="glyphicon glyphicon-user"></span>-->
+            <!--</a>-->
+        <!--</p>-->
+
+    <!--</div>-->
+<!--</nav>-->
 
 

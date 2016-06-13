@@ -1,6 +1,4 @@
-/**
- * Created by isha srivastava on 10-Jun-16.
- */
+
 
 module.exports = function() {
 

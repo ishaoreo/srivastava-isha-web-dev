@@ -20,8 +20,14 @@ app.post("/api/website/:websiteId/page",createPage);
 
 
     function createPage(req, res) {
+
+
         var id = req.params.websiteId;
         var newPage = req.body;
+
+        console.log("inside page.service.server create");
+        console.log("inside page.service.server create"+id);
+        console.log("inside page.service.server create"+newPage.name);
         pageModel
             .createPage(id,newPage)
             .then(

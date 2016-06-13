@@ -21,24 +21,38 @@
 
 <!--Body of the page-->
 
+<!--<div class="container">-->
+    <!--<ul class="col-lg-12">-->
+        <!--<a ng-click = "model.createHeaderWidget(model.pageId)">-->
+            <!--Header-->
+        <!--</a>-->
+    <!--</ul>-->
+
+    <!--<ul class="col-lg-12">-->
+        <!--<a  ng-click = "model.createImageWidget(model.pageId)">-->
+            <!--Image-->
+        <!--</a>-->
+    <!--</ul>-->
+
+    <!--<ul class="col-lg-12">-->
+        <!--<a  ng-click = "model.createYouTubeWidget(model.pageId)">-->
+            <!--YouTube-->
+        <!--</a>-->
+    <!--</ul>-->
+<!--</div>-->
+
+
 <div class="container">
-    <ul class="col-lg-12">
-        <a ng-click = "model.createHeaderWidget(model.pageId)">
-            Header
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+    <div ng-repeat="widgetType in model.widgetTypes" class="list-group">
+        <span>
+        <a class="navbar-brand" ng-click = "model.createWidget(widgetType.text)">
+            {{widgetType.text}}
         </a>
-    </ul>
-
-    <ul class="col-lg-12">
-        <a  ng-click = "model.createImageWidget(model.pageId)">
-            Image
-        </a>
-    </ul>
-
-    <ul class="col-lg-12">
-        <a  ng-click = "model.createYouTubeWidget(model.pageId)">
-            YouTube
-        </a>
-    </ul>
+    </span>
+    </div>
 </div>
 
 <!-- Footer -->

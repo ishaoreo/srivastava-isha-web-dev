@@ -1,96 +1,173 @@
 
-
-<!--Header-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <!--Left arrow-->
-        <p class="navbar-text pull-left">
-            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
-                <span class="glyphicon glyphicon-chevron-left"></span>
+        <div class="navbar-header">
+            <p class="navbar-text pull-left">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                </a>
+            </p>
+            <a class="navbar-brand" href="#">
+                Widget Edit
             </a>
-        </p>
-        <span>
-        <!--heading on the nav bar-->
-        <p class="navbar-header pull-left">
-            <a class="navbar-brand thick">
-                <b>Widget Edit</b>
-            </a>
-        </p>
-        </span>
-        <!--tick mark-->
-        <p class="navbar-text pull-right">
-            <a ng-click="model.updateWidget(model.widget)" class="navbar-link">
-                <span class="glyphicon glyphicon-ok"></span>
-            </a>
-        </p>
-
-    </div>
-</nav>
-
-<!--Content of the webpage-->
-<div class="container-fluid">
-    <form>
-        <div class="form-group">
-            <label for="Name">Name</label>
-            <input ng-model="model.widget.name"
-                   type="text"
-                   class="form-control"
-                   id="Name"
-                   placeholder="Name">
-        </div>
-
-        <div class="form-group">
-            <label for="Title">Text</label>
-            <input ng-model="model.widget.text"
-                   type="text"
-                   class="form-control"
-                   id="Title"
-                   value="Us Senate reaches"
-                   placeholder="enter the text">
-        </div>
-
-        <div class="form-group">
-            <label for="sel1">Size</label>
-            <input ng-model="model.widget.size"
-                   class="form-control"
-                   type="number"
-                   id="sel1">
-            </input>
-        </div>
-
-    </form>
-
-    <a class="btn btn-danger btn-block "
-       ng-click="model.deleteWidget(model.widget)">Delete</a>
-
-
-</div>
-
-<!-- Footer -->
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <p class="navbar-text pull-right">
-            <a href="#/user/{{model.userId}}">
-                <span class="glyphicon glyphicon-user"></span>
-            </a>
-        </p>
-
-    </div>
-</nav>
-
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-inner">
-            <!--<a class="navbar-brand" href="#"></a>-->
-            <p class="navbar-text">
-                <a href="#/user/{{model.userId}}" class="navbar-link">
-          <span class="glyphicon glyphicon-user pull-right text-primary">
-          </span>
+            <p class="navbar-text pull-right">
+                <a ng-click="model.updateWidget(model.widget)" class="navbar-link">
+                <span class="glyphicon glyphicon-ok">
+                </span>
                 </a>
             </p>
         </div>
     </div>
-
 </nav>
+
+<div class="container">
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+    <form>
+        <div class="form-group">
+            <label for="widget-name">Name*</label>
+            <input ng-model="model.widget.name"
+                   type="text"
+                   class="form-control"
+                   id="widget-name"
+                   placeholder="Name" required>
+        </div>
+        <div class="form-group">
+            <label for="widget-content">Text</label>
+            <input ng-model="model.widget.text"
+                   type="text"
+                   class="form-control"
+                   id="widget-content"
+                   placeholder="US Senate Reaches Compromise on Emergency">
+        </div>
+        <div class="form-group">
+            <label for="widget-size">Size</label>
+            <select ng-model="model.widget.size"
+                    type="text"
+                    class="form-control"
+                    id="widget-size"
+                    placeholder="3">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <br/>
+    </form>
+    <a ng-click="model.deleteWidget()"
+       class="btn btn-danger  btn-block">Delete</a>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
+                  <span class="glyphicon glyphicon-user">
+                  </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+
+<!--&lt;!&ndash;Header&ndash;&gt;-->
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+    <!--<div class="container-fluid">-->
+        <!--&lt;!&ndash;Left arrow&ndash;&gt;-->
+        <!--<p class="navbar-text pull-left">-->
+            <!--<a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">-->
+                <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+            <!--</a>-->
+        <!--</p>-->
+        <!--<span>-->
+        <!--&lt;!&ndash;heading on the nav bar&ndash;&gt;-->
+        <!--<p class="navbar-header pull-left">-->
+            <!--<a class="navbar-brand thick">-->
+                <!--<b>Widget Edit</b>-->
+            <!--</a>-->
+        <!--</p>-->
+        <!--</span>-->
+        <!--&lt;!&ndash;tick mark&ndash;&gt;-->
+        <!--<p class="navbar-text pull-right">-->
+            <!--<a ng-click="model.updateWidget(model.widget)" class="navbar-link">-->
+                <!--<span class="glyphicon glyphicon-ok"></span>-->
+            <!--</a>-->
+        <!--</p>-->
+
+    <!--</div>-->
+<!--</nav>-->
+
+<!--&lt;!&ndash;Content of the webpage&ndash;&gt;-->
+<!--<div class="container-fluid">-->
+    <!--<form>-->
+        <!--<div class="form-group">-->
+            <!--<label for="Name">Name</label>-->
+            <!--<input ng-model="model.widget.name"-->
+                   <!--type="text"-->
+                   <!--class="form-control"-->
+                   <!--id="Name"-->
+                   <!--placeholder="Name">-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label for="Title">Text</label>-->
+            <!--<input ng-model="model.widget.text"-->
+                   <!--type="text"-->
+                   <!--class="form-control"-->
+                   <!--id="Title"-->
+                   <!--value="Us Senate reaches"-->
+                   <!--placeholder="enter the text">-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label for="sel1">Size</label>-->
+            <!--<input ng-model="model.widget.size"-->
+                   <!--class="form-control"-->
+                   <!--type="number"-->
+                   <!--id="sel1">-->
+            <!--</input>-->
+        <!--</div>-->
+
+    <!--</form>-->
+
+    <!--<a class="btn btn-danger btn-block "-->
+       <!--ng-click="model.deleteWidget(model.widget)">Delete</a>-->
+
+
+<!--</div>-->
+
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<nav class="navbar navbar-default navbar-fixed-bottom">-->
+    <!--<div class="container-fluid">-->
+        <!--<p class="navbar-text pull-right">-->
+            <!--<a href="#/user/{{model.userId}}">-->
+                <!--<span class="glyphicon glyphicon-user"></span>-->
+            <!--</a>-->
+        <!--</p>-->
+
+    <!--</div>-->
+<!--</nav>-->
+
+
+<!--<nav class="navbar navbar-default navbar-fixed-bottom">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-inner">-->
+            <!--&lt;!&ndash;<a class="navbar-brand" href="#"></a>&ndash;&gt;-->
+            <!--<p class="navbar-text">-->
+                <!--<a href="#/user/{{model.userId}}" class="navbar-link">-->
+          <!--<span class="glyphicon glyphicon-user pull-right text-primary">-->
+          <!--</span>-->
+                <!--</a>-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</div>-->
+
+<!--</nav>-->
 
