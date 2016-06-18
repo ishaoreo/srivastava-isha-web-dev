@@ -89,8 +89,9 @@
     </form>
     <a class="btn btn-primary btn-block"
        href="#/user/{{model.user._id}}/website">Websites</a>
-    <a class="btn btn-danger btn-block"
+    <a ng-click="model.logout()" class="btn btn-danger btn-block"
        href="#/login">Log Out</a>
+    <!--//changed on 14th june-->
     <a ng-click= "model.unregister()"
        class="btn btn-danger btn-block">Unregister</a>
 </div>

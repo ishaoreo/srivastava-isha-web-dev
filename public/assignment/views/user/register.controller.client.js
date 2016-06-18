@@ -12,15 +12,19 @@
             // if(validation(username,password,passwordRepeat)){
             //var newUser = UserService.createUser(username, password);
             UserService
-                .createUser(username, password)
-                .then(function(response){
+                .register(username, password)
+                .then(
+                    function(response){
                     var user = response.data;
                     if(user){
                         $location.url("/user/"+user._id);
-                    } else {
-                        vm.error = "Cannot register Now!"
                     }
-                });
+                },
+                    function (err) {
+
+                            vm.error = err;
+                    }
+                );
 
             // }
         }

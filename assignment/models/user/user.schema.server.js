@@ -12,6 +12,11 @@ module.exports = function()
         password: String,
         firstName: String,
         lastName: String,
+        facebook: {
+            id:    String,
+            token: String,
+            displayName: String
+        },
         dob: Date,
         dateCreated:{type:Date, default: Date.now}
     },{collection: "assignment.user"});

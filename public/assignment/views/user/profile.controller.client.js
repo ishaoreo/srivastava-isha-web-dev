@@ -8,6 +8,23 @@
         var vm = this; //this is a view model
         vm.updateUser = updateUser;
         vm.unregister = unregister;
+        vm.logout= logout;
+        function logout() {
+            UserService
+                .logout()
+                .then (
+                    function (response) {
+                        $location.url("/login");
+                        
+                    },
+                    function()
+                    {
+                        $location.url("/login");
+                    }
+
+                )
+            
+        }
 
         var index = -1;
 
