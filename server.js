@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var passport = require('passport');
 app.use(cookieParser());
-app.use(session({ secret: "aksaks;al" }));
+app.use(session({ secret: "isha" }));
 
 app.use(passport.initialize());
 app.use(passport.session());
