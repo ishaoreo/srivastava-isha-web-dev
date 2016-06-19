@@ -13,6 +13,7 @@
         function createPage(name, title) {
             //console.log(name);
             //console.log(title);
+            if (validation(name)) {
          PageService.createPage(vm.websiteId, name, title)
              .then(
                  function(response){
@@ -27,6 +28,15 @@
 
              );
 
+        }}  //end of createPage
+        
+        function validation(name) {
+            if (name == null) {
+                vm.error = "Name has to be entered!";
+                $("#name").css("background-color", "lightcoral");
+                return false;
+            }
+            return true;
         }
     };
 

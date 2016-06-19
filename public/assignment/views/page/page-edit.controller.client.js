@@ -12,7 +12,7 @@
         vm.updatePage = updatePage;
 
         function init() {
-            console.log("inside 1st outer" + vm.pageId);
+           // console.log("inside 1st outer" + vm.pageId);
                 PageService
                     .findPageById(vm.pageId)
                     .then (function (response){
@@ -24,7 +24,7 @@
         init();
 
         function updatePage(page) {
-
+            if (validation(page.name)) {
                 PageService
                     .updatePage(page)
                     .then(

@@ -23,7 +23,9 @@
         init();
 
         function updateWebsite(website){
-            var result = 
+           // commented on 19june var result =
+
+            if (validation(website.name)) {
                 WebsiteService
                     .updateWebsite(website)
                     .then(
@@ -35,8 +37,16 @@
                         {
                             vm.error="unable to update website";
                         }
-        )}
-        
+        )} }
+
+        function validation(name) {
+            if (name == null) {
+                vm.error = "Name has to be entered!";
+                $("#website-name").css("background-color", "lightcoral");
+                return false;
+            }
+            return true;
+        }
 
 
 
