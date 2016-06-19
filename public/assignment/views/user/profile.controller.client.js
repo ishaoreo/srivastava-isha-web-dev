@@ -4,11 +4,14 @@
         .controller("ProfileController", ProfileController);
 
 
-    function ProfileController($routeParams, $location, UserService) {
+    function ProfileController($routeParams, $location, UserService,$rootScope) {
         var vm = this; //this is a view model
         vm.updateUser = updateUser;
         vm.unregister = unregister;
         vm.logout= logout;
+
+        var id = $rootScope.currentUser._id;
+
         function logout() {
             UserService
                 .logout()
@@ -29,7 +32,7 @@
         var index = -1;
 
         //var id = $routeParams['id'];
-        var id = $routeParams.userId;
+        //var id = $routeParams.userId;
         
         function init()
         {

@@ -16,7 +16,12 @@ module.exports = function (app,models) { // u need sum1 to call u
     //     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
     // ];
 
-    app.get("/auth/facebook", facebookLogin);
+    app.get("/auth/facebook",passport.authenticate('facebook'));
+    app.get("/auth/facebook/callback",
+        passport.authenticate('facebook',{
+            successRedirect:'/assignment/#/user',
+            failureRedirect: '/assignment/#/login'
+        }));
     app.get("/api/user", getUsers);
     app.post("/api/logout", logout);
     app.get("/api/loggedIn", loggedIn);
@@ -39,40 +44,25 @@ module.exports = function (app,models) { // u need sum1 to call u
         callbackURL  : process.env.FACEBOOK_CALLBACK_URL
     };
 
-    passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+    //passport.use('facebook',new FacebookStrategy(facebookConfig, facebookStrategy));
+    passport.use('facebook', new FacebookStrategy(facebookConfig, facebookLogin));
 
-// write the logout function 14th june
-    function facebookStrategy(token, refreshToken, profile, done) {
-        console.log(profile);
-       // res.send(200);
+    function localStrategy(username, password, done) {
         userModel
-            .findFacebookUser(profile.id)
+            .findUserByUsername(username)
             .then(
-                function (facebookUser) {
-                    if(facebookUser){
-                        return done(null,facebookUser);
-                    }else{
-                        facebookUser={
-                            username:profile.displayName.replace(/ /g,''),
-                            facebook: {
-                                id:    String,
-                                token: String,
-                                displayName: String
-                            }
-                        };
-                        userModel
+                function (user) {
+                    if(user && bcrypt.compareSync(password, user.password)) {
+                        done(null, user);
+                    } else {
+                        done(null, false);
                     }
-
+                },
+                function(err) {
+                    done(err);
                 }
-            )
-
+            );
     }
-
-    function  facebookLogin(req, res) {
-        res.send (200);
-
-    }
-
 
     function serializeUser(user, done) {
         done(null, user);
@@ -91,29 +81,101 @@ module.exports = function (app,models) { // u need sum1 to call u
             );
     }
 
-    function localStrategy(username, password, done) { ///done functions this user exists or not or cannot tell
-        userModel
-            .findUserByUsername(username)
-            .then(
-                function (user) {
-                    if(user) {
-                        if(user && bcrypt.compareSync(password, user.password)) {
-                            done(null, user);
-                        } else {
-                            done(null, false);
-                        }
-                        done (null,user);
-                    }
-                    else {
-                        done(null,false);}
+    // function localStrategy(username, password, done) { ///done functions this user exists or not or cannot tell
+    //     userModel
+    //         .findUserByUsername(username)
+    //         .then(
+    //             function (user) {
+    //                 if(user) {
+    //                     if(user && bcrypt.compareSync(password, user.password)) {
+    //                         done(null, user);
+    //                     } else {
+    //                         done(null, false);
+    //                     }
+    //
+    //                     done (null,user);
+    //                 }
+    //                 else {
+    //                     done(null,false);}
+    //
+    //                 //res.json(user);
+    //             },
+    //             function(err) {
+    //                 done(err);
+    //             }
+    //         )
+    // }
 
-                    //res.json(user);
-                },
-                function(err) {
-                    done(err);
+// write the logout function 14th june
+
+
+    function facebookLogin(token, refreshToken, profile, done) {
+        console.log("refresh token"+refreshToken);
+
+        console.log(profile);
+        userModel
+            .findFacebookUser(profile.id)
+            .then(
+                function(facebookUser) {
+                    if(facebookUser) {
+                        console.log(refreshToken);
+                        return done(null, facebookUser);
+                    } else {
+                        facebookUser = {
+                            username: profile.displayName.replace(/ /g,''),
+                            facebook: {
+                                token: token,
+                                id: profile.id,
+                                displayName: profile.displayName
+                            }
+                        };
+                        userModel
+                            .createUser(facebookUser)
+                            .then(
+                                function(user) {
+                                    done(null, user);
+                                }
+                            );
+                    }
                 }
-            )
+            );
     }
+
+
+    //
+    // function facebookStrategy(token, refreshToken, profile, done) {
+    //     console.log(profile);
+    //     // res.send(200);
+    //     userModel
+    //         .findFacebookUser(profile.id)
+    //         .then(
+    //             function (facebookUser) {
+    //                 if(facebookUser){
+    //                     return done(null,facebookUser);
+    //                 }else{
+    //                     facebookUser={
+    //                         username:profile.displayName.replace(/ /g,''),
+    //                         facebook: {
+    //                             id:    String,
+    //                             token: String,
+    //                             displayName: String
+    //                         }
+    //                     };
+    //                     userModel
+    //                         .createUser(facebookUser)
+    //                         .then(
+    //                             function(user){
+    //                                 done(null,user);
+    //
+    //                             }
+    //                         );
+    //
+    //                 }
+    //
+    //             }
+    //         );
+    //
+    // }
 
     function register(req,res){
         var username = req.body.username;

@@ -8,7 +8,7 @@ module.exports = function()
     var mongoose = require('mongoose');
     
     var UserSchema = mongoose.Schema({ //user schema being created here
-    username : {type:String, required: true}, //enforcing that it is a required field
+    username : String, //enforcing that it is a required field
         password: String,
         firstName: String,
         lastName: String,
