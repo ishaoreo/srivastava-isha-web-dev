@@ -7,7 +7,7 @@
 
         var vm = this;
         vm.userId = $routeParams.userId;
-        vm.websiteId = $routeParams.userId;
+        vm.websiteId = $routeParams.websiteId; ///changed on 18june
         vm.pageId = $routeParams.pageId;
         vm.getSafeHtml = getSafeHtml;
         vm.getSafeUrl = getSafeUrl;

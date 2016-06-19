@@ -26,7 +26,7 @@ module.exports = function (app,models) { // u need sum1 to call u
     app.post("/api/logout", logout);
     app.get("/api/loggedIn", loggedIn);
     app.post("/api/register", register);
-    //app.get("/api/user?username=:username",findUserByUsername);
+   // app.get("/api/user?username=:username",findUserByUsername);
     app.get("/api/user/:userId", findUserById);
     app.post("/api/user",createUser);
     app.put("/api/user/:userId",updateUser);
@@ -111,7 +111,6 @@ module.exports = function (app,models) { // u need sum1 to call u
 
     function facebookLogin(token, refreshToken, profile, done) {
         console.log("refresh token"+refreshToken);
-
         console.log(profile);
         userModel
             .findFacebookUser(profile.id)

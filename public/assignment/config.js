@@ -32,6 +32,14 @@
                     loggedIn: checkLoggedIn
                 }
             })
+            .when("/user/:userId", {
+                templateUrl : "views/user/profile.view.client.html",
+                controller : "ProfileController",
+                controllerAs : "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
+            })
             .when("/user/:userId/website", {
                 templateUrl : "views/website/website-list.view.client.html",
                 controller : "WebsiteListController",

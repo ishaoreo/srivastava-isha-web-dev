@@ -11,6 +11,7 @@
         vm.logout= logout;
 
         var id = $rootScope.currentUser._id;
+        vm.userId= id; ///changed on 18th june ---added
 
         function logout() {
             UserService
