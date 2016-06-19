@@ -42,6 +42,14 @@
             // } else {
             //     vm.error = "Unable to update page";
             // }
+        }}
+        function validation(name) {
+            if (name == null) {
+                vm.error = "Name has to be entered!";
+                $("#name").css("background-color", "lightcoral");
+                return false;
+            }
+            return true;
         }
 
         function deletePage(page) {
