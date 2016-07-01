@@ -10,7 +10,7 @@
 module.exports = function()
 {
     var mongoose = require('mongoose');
-    mongoose.connect('mongodb://localhost/cs5610summer1');
+    // mongoose.connect('mongodb://localhost/cs5610summer1');
 
     // var connectionString = 'mongodb://127.0.0.1:27017/test';
 var connectionString = 'mongodb://localhost/cs5610summer1';
